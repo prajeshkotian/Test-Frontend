@@ -1,13 +1,23 @@
-import RegistrationPage from './Authentication/Registration';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Main/Home";
+import RegistrationPage from "./Authentication/Registration";
+import Login from "./Authentication/Login";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <RegistrationPage />
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/register" element={<RegistrationPage />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </header>
+      </div>
+    </Router>
   );
 }
 
